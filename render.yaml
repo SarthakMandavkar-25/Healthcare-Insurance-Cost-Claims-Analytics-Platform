@@ -1,0 +1,12 @@
+# Render.com deployment blueprint
+# Deploy: connect this repo at https://dashboard.render.com/blueprints
+services:
+  - type: web
+    name: healthcare-insurance-analytics
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt && python run_pipeline.py"
+    startCommand: "streamlit run app/streamlit_app.py --server.port=$PORT --server.address=0.0.0.0"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9

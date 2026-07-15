@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  claims-dashboard:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    image: healthcare-insurance-analytics:latest
+    container_name: healthcare-insurance-analytics
+    ports:
+      - "8502:8501"
+    restart: unless-stopped
